@@ -1,0 +1,118 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Players/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/Tiles.tres" type="TileSet" id=2]
+[ext_resource path="res://Props/Diamond.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Props/Portal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Levels/Level.gd" type="Script" id=5]
+[ext_resource path="res://Levels/Background.tscn" type="PackedScene" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 264, 8 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 57.6647, 0.551758 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 169.936, 0.551758 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 8, 216.204 )
+
+[sub_resource type="DynamicFontData" id=6]
+font_path = "res://Resources/MatchupPro.ttf"
+
+[sub_resource type="DynamicFont" id=7]
+font_data = SubResource( 6 )
+
+[node name="Fin" type="Node2D"]
+script = ExtResource( 5 )
+diamond_count = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+zoom = Vector2( 0.5, 0.5 )
+
+[node name="Background" parent="." instance=ExtResource( 7 )]
+
+[node name="MidGround" type="TileMap" parent="."]
+visible = false
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -65531, 0, 458753, -65530, 0, 458753, -65529, 0, 458753, -65528, 0, 458753, -65527, 0, 458753, -65526, 0, 458753, 5, 0, 458753, 6, 0, 458753, 7, 0, 458753, 8, 0, 458753, 9, 0, 458753, 10, 0, 458753, 65541, 0, 458753, 65542, 0, 458753, 65543, 0, 524289, 65544, 0, 524289, 65545, 0, 524289, 65546, 0, 458753, 65547, 0, 524289, 131077, 0, 458753, 131078, 0, 458754, 131082, 0, 458752, 196613, 0, 458753, 196614, 0, 458754, 196618, 0, 458752, 196619, 0, 458753, 196620, 0, 458753, 196621, 0, 458753, 196622, 0, 458753, 196623, 0, 458753, 196624, 0, 524290, 262149, 0, 458753, 262150, 0, 458753, 262151, 0, 458754, 262154, 0, 524288, 262155, 0, 524289, 262156, 0, 524289, 262157, 0, 458753, 262158, 0, 458753, 262159, 0, 458754, 327684, 0, 458753, 327685, 0, 458753, 327686, 0, 458753, 327687, 0, 458754, 327693, 0, 524289, 327694, 0, 524289, 327695, 0, 524290, 393220, 0, 458753, 393221, 0, 458753, 393222, 0, 458754, 458756, 0, 458753, 458757, 0, 458753, 458758, 0, 458754, 524292, 0, 458753, 524293, 0, 458753, 524294, 0, 524290, 589828, 0, 458753, 589829, 0, 524290 )
+
+[node name="Ground" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+collision_mask = 3
+format = 1
+tile_data = PoolIntArray( 983040, 0, 262147, 983041, 0, 262147, 983042, 0, 262147, 983043, 0, 262147, 983044, 0, 262147, 983045, 0, 262147, 983046, 0, 262147, 983047, 0, 262147, 983048, 0, 262147, 983049, 0, 262147, 983050, 0, 262147, 983051, 0, 262147, 983052, 0, 262147, 983053, 0, 262147, 983054, 0, 262147, 983055, 0, 262147, 983056, 0, 262147, 983057, 0, 262147, 983058, 0, 262147, 983059, 0, 262147, 983060, 0, 262147, 983061, 0, 262147, 983062, 0, 262147, 983063, 0, 262147, 983064, 0, 262147, 983065, 0, 262147, 983066, 0, 262147, 983067, 0, 262147, 983068, 0, 262147, 983069, 0, 262147, 983070, 0, 262147, 983071, 0, 262147, 1048576, 0, 327682, 1048577, 0, 327682, 1048578, 0, 327682, 1048579, 0, 327682, 1048580, 0, 327683, 1048581, 0, 327683, 1048582, 0, 327683, 1048583, 0, 327683, 1048584, 0, 327683, 1048585, 0, 327683, 1048586, 0, 327683, 1048587, 0, 327683, 1048588, 0, 327683, 1048589, 0, 327683, 1048590, 0, 327682, 1048591, 0, 327682, 1048592, 0, 327682, 1048593, 0, 327682, 1048594, 0, 327682, 1048595, 0, 327682, 1048596, 0, 327682, 1048597, 0, 327682, 1048598, 0, 327682, 1048599, 0, 327682, 1048600, 0, 327682, 1048601, 0, 327682, 1048602, 0, 327682, 1048603, 0, 327682, 1048604, 0, 327682, 1048605, 0, 327682, 1048606, 0, 327682, 1048607, 0, 327682, 1114112, 0, 720898, 1114113, 0, 720898, 1114114, 0, 720898, 1114115, 0, 720898, 1114116, 0, 720898, 1114117, 0, 720898, 1114118, 0, 720898, 1114119, 0, 720898, 1114120, 0, 720898, 1114121, 0, 720898, 1114122, 0, 720898, 1114123, 0, 720898, 1114124, 0, 720898, 1114125, 0, 720898, 1114126, 0, 720898, 1114127, 0, 720898, 1114128, 0, 720898, 1114129, 0, 720898, 1114130, 0, 720898, 1114131, 0, 720898, 1114132, 0, 720898, 1114133, 0, 720898, 1114134, 0, 720898, 1114135, 0, 720898, 1114136, 0, 720898, 1114137, 0, 720898, 1114138, 0, 720898, 1114139, 0, 720898, 1114140, 0, 720898, 1114141, 0, 720898, 1114142, 0, 720898, 1114143, 0, 720898, 1179648, 0, 720898, 1179649, 0, 720898, 1179650, 0, 720898, 1179651, 0, 720898, 1179652, 0, 720898, 1179653, 0, 720898, 1179654, 0, 720898, 1179655, 0, 720898, 1179656, 0, 720898, 1179657, 0, 720898, 1179658, 0, 720898, 1179659, 0, 720898, 1179660, 0, 720898, 1179661, 0, 720898, 1179662, 0, 720898, 1179663, 0, 720898, 1179664, 0, 720898, 1179665, 0, 720898, 1179666, 0, 720898, 1179667, 0, 720898, 1179668, 0, 720898, 1179669, 0, 720898, 1179670, 0, 720898, 1179671, 0, 720898, 1179672, 0, 720898, 1179673, 0, 720898, 1179674, 0, 720898, 1179675, 0, 720898, 1179676, 0, 720898, 1179677, 0, 720898, 1179678, 0, 720898, 1179679, 0, 720898 )
+
+[node name="GroundBody" type="StaticBody2D" parent="."]
+position = Vector2( 175.563, 234.202 )
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundBody"]
+position = Vector2( 80.7698, 21.798 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="GroundBody"]
+position = Vector2( 174.475, -36.3171 )
+shape = SubResource( 8 )
+one_way_collision = true
+one_way_collision_margin = 0.0
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="GroundBody"]
+position = Vector2( 142.44, -82.6658 )
+shape = SubResource( 8 )
+one_way_collision = true
+one_way_collision_margin = 0.0
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="GroundBody"]
+position = Vector2( 178.338, -125.606 )
+shape = SubResource( 8 )
+one_way_collision = true
+one_way_collision_margin = 0.0
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="GroundBody"]
+position = Vector2( -0.608597, -170.577 )
+shape = SubResource( 9 )
+one_way_collision = true
+one_way_collision_margin = 0.0
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="GroundBody"]
+position = Vector2( -183.563, -106.202 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="GroundBody"]
+position = Vector2( 344.437, -98.202 )
+shape = SubResource( 4 )
+
+[node name="Diamond" parent="." instance=ExtResource( 3 )]
+position = Vector2( 305.243, 55.9864 )
+
+[node name="Portal" parent="." instance=ExtResource( 4 )]
+position = Vector2( 26.6757, 36.8955 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 139.066, 225.944 )
+
+[node name="Subtitles" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="Subtitles"]
+margin_left = 185.33
+margin_top = 45.3192
+margin_right = 331.33
+margin_bottom = 80.3192
+custom_fonts/font = SubResource( 7 )
+text = "You made it!
+Thanks for playing!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="open_portal" from="." to="Portal" method="_on_open_portal"]
+[connection signal="diamond_collected" from="Diamond" to="." method="_on_diamond_collected"]

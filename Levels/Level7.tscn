@@ -1,0 +1,216 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Levels/Level.gd" type="Script" id=1]
+[ext_resource path="res://Levels/Tiles.tres" type="TileSet" id=2]
+[ext_resource path="res://Props/Portal.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Players/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Levels/Background.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Mobs/Slime.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Props/Diamond.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Levels/SecretPortal.gd" type="Script" id=8]
+[ext_resource path="res://Resources/MatchupProFont.tres" type="DynamicFont" id=9]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 112, 8 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 56, 8 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 48, 16 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 8, 32 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 8, 72 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 8, 112 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 8, 40 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 24, 24 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 40, 24 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 48, 8 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 36.3608, 10 )
+
+[node name="Level7" type="Node2D"]
+script = ExtResource( 1 )
+diamond_count = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+zoom = Vector2( 0.5, 0.5 )
+
+[node name="Background" parent="." instance=ExtResource( 5 )]
+
+[node name="MidGround" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+
+[node name="Ground" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+collision_mask = 3
+format = 1
+tile_data = PoolIntArray( 0, 0, 720898, 1, 0, 720898, 2, 0, 720898, 3, 0, 720898, 4, 0, 720898, 5, 0, 720898, 6, 0, 131072, 7, 0, 655364, 12, 0, 655360, 13, 0, 720897, 14, 0, 720898, 15, 0, 720898, 16, 0, 720898, 17, 0, 720898, 18, 0, 720898, 19, 0, 720898, 20, 0, 720898, 21, 0, 720898, 22, 0, 131072, 23, 0, 655364, 30, 0, 131076, 31, 0, 262149, 65536, 0, 720898, 65537, 0, 720898, 65538, 0, 720898, 65539, 0, 720898, 65540, 0, 0, 65541, 0, 786434, 65542, 0, 786435, 65543, 0, 655364, 65548, 0, 655360, 65549, 0, 720897, 65550, 0, 720898, 65551, 0, 720898, 65552, 0, 720898, 65553, 0, 720898, 65554, 0, 720898, 65555, 0, 720898, 65556, 0, 720898, 65557, 0, 720898, 65558, 0, 131072, 65559, 0, 655364, 65566, 0, 131076, 65567, 0, 262149, 131072, 0, 720898, 131073, 0, 720898, 131074, 0, 720898, 131075, 0, 720898, 131076, 0, 131072, 131077, 0, 65537, 131078, 0, 65538, 131079, 0, 851972, 131084, 0, 655360, 131085, 0, 786433, 131086, 0, 3, 131087, 0, 3, 131088, 0, 3, 131089, 0, 3, 131090, 0, 3, 131091, 0, 5, 131092, 0, 720898, 131093, 0, 720898, 131094, 0, 720899, 131095, 0, 131073, 131102, 0, 131076, 131103, 0, 262149, 196608, 0, 720898, 196609, 0, 720898, 196610, 0, 720898, 196611, 0, 720898, 196612, 0, 131072, 196613, 0, 131073, 196620, 0, 851968, 196621, 0, 65539, 196622, 0, 65539, 196623, 0, 65539, 196624, 0, 65539, 196625, 0, 65538, 196626, 0, 65540, 196627, 0, 720897, 196628, 0, 720898, 196629, 0, 720898, 196630, 0, 196608, 196631, 0, 655364, 196638, 0, 131076, 196639, 0, 262149, 262144, 0, 786434, 262145, 0, 786434, 262146, 0, 786434, 262147, 0, 786434, 262148, 0, 786435, 262149, 0, 131073, 262162, 0, 131076, 262163, 0, 786433, 262164, 0, 2, 262165, 0, 2, 262166, 0, 786435, 262167, 0, 655364, 262173, 0, 589824, 262174, 0, 262148, 262175, 0, 262149, 327680, 0, 65538, 327681, 0, 65538, 327682, 0, 65538, 327683, 0, 65538, 327684, 0, 65538, 327685, 0, 851972, 327698, 0, 851968, 327699, 0, 65539, 327700, 0, 65538, 327701, 0, 65538, 327702, 0, 65538, 327703, 0, 851972, 327709, 0, 131076, 327710, 0, 655361, 327711, 0, 327685, 393245, 0, 131076, 393246, 0, 262149, 393247, 0, 720898, 458781, 0, 131076, 458782, 0, 262149, 458783, 0, 720898, 524317, 0, 131076, 524318, 0, 262149, 524319, 0, 720898, 589853, 0, 131076, 589854, 0, 262149, 589855, 0, 720898, 655389, 0, 131076, 655390, 0, 262149, 655391, 0, 720898, 720925, 0, 131076, 720926, 0, 262149, 720927, 0, 720898, 786435, 0, 589824, 786436, 0, 589825, 786437, 0, 589825, 786438, 0, 589825, 786439, 0, 589825, 786440, 0, 589825, 786441, 0, 589825, 786442, 0, 589828, 786458, 0, 589824, 786459, 0, 262147, 786460, 0, 262147, 786461, 0, 262148, 786462, 0, 262149, 786463, 0, 720898, 851971, 0, 655360, 851972, 0, 655361, 851973, 0, 655362, 851974, 0, 655362, 851975, 0, 655362, 851976, 0, 655362, 851977, 0, 655363, 851978, 0, 655364, 851991, 0, 589824, 851992, 0, 262147, 851993, 0, 262147, 851994, 0, 262148, 851995, 0, 655361, 851996, 0, 327683, 851997, 0, 327684, 851998, 0, 327685, 851999, 0, 720898, 917507, 0, 655360, 917508, 0, 720897, 917509, 0, 720898, 917510, 0, 720898, 917511, 0, 720898, 917512, 0, 720898, 917513, 0, 720899, 917514, 0, 655364, 917527, 0, 655360, 917528, 0, 655361, 917529, 0, 655362, 917530, 0, 655362, 917531, 0, 327685, 917532, 0, 720898, 917533, 0, 720898, 917534, 0, 720898, 917535, 0, 720898, 983043, 0, 655360, 983044, 0, 720897, 983045, 0, 720898, 983046, 0, 720898, 983047, 0, 720898, 983048, 0, 720898, 983049, 0, 720899, 983050, 0, 262145, 983051, 0, 262146, 983052, 0, 262146, 983053, 0, 262146, 983054, 0, 262146, 983055, 0, 262146, 983056, 0, 262146, 983057, 0, 262146, 983058, 0, 262146, 983059, 0, 262146, 983060, 0, 262146, 983061, 0, 262146, 983062, 0, 262146, 983063, 0, 262148, 983064, 0, 262149, 983065, 0, 720898, 983066, 0, 720898, 983067, 0, 720898, 983068, 0, 720898, 983069, 0, 720898, 983070, 0, 720898, 983071, 0, 720898, 1048579, 0, 655360, 1048580, 0, 720897, 1048581, 0, 720898, 1048582, 0, 720898, 1048583, 0, 720898, 1048584, 0, 720898, 1048585, 0, 327680, 1048586, 0, 655362, 1048587, 0, 655362, 1048588, 0, 655362, 1048589, 0, 655362, 1048590, 0, 655362, 1048591, 0, 327681, 1048592, 0, 327681, 1048593, 0, 327681, 1048594, 0, 327681, 1048595, 0, 327681, 1048596, 0, 327681, 1048597, 0, 327681, 1048598, 0, 327681, 1048599, 0, 327684, 1048600, 0, 327685, 1048601, 0, 720898, 1048602, 0, 720898, 1048603, 0, 720898, 1048604, 0, 720898, 1048605, 0, 720898, 1048606, 0, 720898, 1048607, 0, 720898, 1114115, 0, 655360, 1114116, 0, 720897, 1114117, 0, 720898, 1114118, 0, 720898, 1114119, 0, 720898, 1114120, 0, 720898, 1114121, 0, 720898, 1114122, 0, 720898, 1114123, 0, 720898, 1114124, 0, 720898, 1114125, 0, 720898, 1114126, 0, 720898, 1114127, 0, 720898, 1114128, 0, 720898, 1114129, 0, 720898, 1114130, 0, 720898, 1114131, 0, 720898, 1114132, 0, 720898, 1114133, 0, 720898, 1114134, 0, 720898, 1114135, 0, 720898, 1114136, 0, 720898, 1114137, 0, 720898, 1114138, 0, 720898, 1114139, 0, 720898, 1114140, 0, 720898, 1114141, 0, 720898, 1114142, 0, 720898, 1114143, 0, 720898, 1179651, 0, 655360, 1179652, 0, 720897, 1179653, 0, 720898, 1179654, 0, 720898, 1179655, 0, 720898, 1179656, 0, 720898, 1179657, 0, 720898, 1179658, 0, 720898, 1179659, 0, 720898, 1179660, 0, 720898, 1179661, 0, 720898, 1179662, 0, 720898, 1179663, 0, 720898, 1179664, 0, 720898, 1179665, 0, 720898, 1179666, 0, 720898, 1179667, 0, 720898, 1179668, 0, 720898, 1179669, 0, 720898, 1179670, 0, 720898, 1179671, 0, 720898, 1179672, 0, 720898, 1179673, 0, 720898, 1179674, 0, 720898, 1179675, 0, 720898, 1179676, 0, 720898, 1179677, 0, 720898, 1179678, 0, 720898, 1179679, 0, 720898 )
+
+[node name="GroundBody" type="StaticBody2D" parent="."]
+position = Vector2( 175.563, 234.202 )
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundBody"]
+position = Vector2( 96.437, 21.798 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="GroundBody"]
+position = Vector2( -143.563, -154.202 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="GroundBody"]
+position = Vector2( -63.563, -26.202 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="GroundBody"]
+position = Vector2( 248.437, -2.202 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="GroundBody"]
+position = Vector2( -95.563, -178.202 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="GroundBody"]
+position = Vector2( -15.563, 13.798 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="GroundBody"]
+position = Vector2( -111.563, 37.798 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="GroundBody"]
+position = Vector2( -183.563, -34.202 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="GroundBody"]
+position = Vector2( 304.437, -90.202 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="GroundBody"]
+position = Vector2( 320.437, -194.202 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D20" type="CollisionShape2D" parent="GroundBody"]
+position = Vector2( 192.437, -194.202 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D21" type="CollisionShape2D" parent="GroundBody"]
+position = Vector2( 272.437, -10.202 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="GroundBody"]
+position = Vector2( -79.563, -218.202 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2D19" type="CollisionShape2D" parent="GroundBody"]
+position = Vector2( 160.437, -170.202 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D22" type="CollisionShape2D" parent="GroundBody"]
+position = Vector2( 64.437, -210.202 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="GroundBody"]
+position = Vector2( 72.437, -186.202 )
+shape = SubResource( 10 )
+
+[node name="Diamonds" type="Node2D" parent="."]
+
+[node name="Diamond" parent="Diamonds" instance=ExtResource( 7 )]
+position = Vector2( 378.34, 198.254 )
+
+[node name="Portal" parent="." instance=ExtResource( 3 )]
+position = Vector2( 445.359, 174.92 )
+type = 1
+
+[node name="Slimes" type="Node2D" parent="."]
+
+[node name="Slime" parent="Slimes" instance=ExtResource( 6 )]
+position = Vector2( 218.304, 238.12 )
+type = 1
+
+[node name="Slime2" parent="Slimes" instance=ExtResource( 6 )]
+position = Vector2( 326.927, 234.739 )
+
+[node name="Slime3" parent="Slimes" instance=ExtResource( 6 )]
+position = Vector2( 253.869, 239.766 )
+
+[node name="Slime4" parent="Slimes" instance=ExtResource( 6 )]
+position = Vector2( 270.647, 232.5 )
+type = 1
+
+[node name="Slime5" parent="Slimes" instance=ExtResource( 6 )]
+position = Vector2( 309.333, 235.087 )
+
+[node name="Slime6" parent="Slimes" instance=ExtResource( 6 )]
+position = Vector2( 275.001, 240.785 )
+type = 1
+
+[node name="Slime7" parent="Slimes" instance=ExtResource( 6 )]
+position = Vector2( 271.946, 240.53 )
+
+[node name="Slime8" parent="Slimes" instance=ExtResource( 6 )]
+position = Vector2( 343.835, 236.75 )
+
+[node name="Slime9" parent="Slimes" instance=ExtResource( 6 )]
+position = Vector2( 235.01, 236.612 )
+type = 1
+
+[node name="Slime10" parent="Slimes" instance=ExtResource( 6 )]
+position = Vector2( 185.275, 235.098 )
+type = 1
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 135.081, 182.706 )
+
+[node name="SecretPortal" type="Area2D" parent="."]
+position = Vector2( 25.0034, 293.57 )
+collision_layer = 8
+collision_mask = 2
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SecretPortal"]
+shape = SubResource( 11 )
+
+[node name="ForeGround" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 21, 0, 458752, 22, 0, 458753, 23, 0, 458753, 24, 0, 458753, 25, 0, 458753, 26, 0, 458753, 27, 0, 458753, 28, 0, 458753, 29, 0, 458753, 30, 0, 458753, 31, 0, 458753, 65557, 0, 524288, 65558, 0, 393216, 65559, 0, 458753, 65560, 0, 458753, 65561, 0, 458753, 65562, 0, 458753, 65563, 0, 458753, 65564, 0, 458753, 65565, 0, 458753, 65566, 0, 458753, 65567, 0, 393216, 131094, 0, 524288, 131095, 0, 524289, 131096, 0, 524289, 131097, 0, 458753, 131098, 0, 458753, 131099, 0, 458753, 131100, 0, 458753, 131101, 0, 458753, 131102, 0, 458753, 131103, 0, 458753, 196608, 0, 393218, 196633, 0, 524288, 196634, 0, 524289, 196635, 0, 524289, 196636, 0, 458753, 196637, 0, 458753, 196638, 0, 458753, 196639, 0, 458753, 262144, 0, 458753, 262145, 0, 393217, 262146, 0, 393217, 262147, 0, 393218, 262171, 0, 524288, 262172, 0, 524289, 262173, 0, 524289, 262174, 0, 524289, 262175, 0, 524289, 327680, 0, 458753, 327681, 0, 458753, 327682, 0, 458753, 327683, 0, 458754, 393216, 0, 458753, 393217, 0, 458753, 393218, 0, 458753, 393219, 0, 458753, 393220, 0, 393218, 458752, 0, 458753, 458753, 0, 458753, 458754, 0, 458753, 458755, 0, 458753, 458756, 0, 458753, 524288, 0, 458753, 524289, 0, 458753, 524290, 0, 458753, 524291, 0, 458753, 524292, 0, 458753, 524293, 0, 393221, 589824, 0, 458753, 589825, 0, 458753, 589826, 0, 458753, 589827, 0, 458753, 589828, 0, 458753, 589829, 0, 458754, 655360, 0, 458753, 655361, 0, 458753, 655362, 0, 458753, 655363, 0, 458753, 655364, 0, 458753, 655365, 0, 458754, 720896, 0, 458753, 720897, 0, 458753, 720898, 0, 458753, 720899, 0, 458753, 720900, 0, 458753, 720901, 0, 458754, 786432, 0, 458753, 786433, 0, 458753, 786434, 0, 458753, 786435, 0, 458753, 786436, 0, 458753, 786437, 0, 458754, 851968, 0, 458753, 851969, 0, 458753, 851970, 0, 458753, 851971, 0, 458753, 851972, 0, 458754, 851973, 0, 524290, 917504, 0, 458753, 917505, 0, 458753, 917506, 0, 458753, 917507, 0, 458753, 917508, 0, 458754, 983040, 0, 458753, 983041, 0, 458753, 983042, 0, 458753, 983043, 0, 458753, 983044, 0, 458754, 1048576, 0, 458753, 1048577, 0, 458753, 1048578, 0, 458753, 1048579, 0, 458753, 1048580, 0, 458754, 1114112, 0, 458753, 1114113, 0, 458753, 1114114, 0, 458753, 1114115, 0, 458754, 1179648, 0, 458753, 1179649, 0, 458753, 1179650, 0, 458753, 1179651, 0, 458754 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 171.197
+margin_top = 275.678
+margin_right = 382.197
+margin_bottom = 289.678
+custom_fonts/font = ExtResource( 9 )
+text = "Something here is not quite right..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="open_portal" from="." to="Portal" method="_on_open_portal"]
+[connection signal="diamond_collected" from="Diamonds/Diamond" to="." method="_on_diamond_collected"]
+[connection signal="body_entered" from="SecretPortal" to="SecretPortal" method="_on_SecretPortal_body_entered"]
